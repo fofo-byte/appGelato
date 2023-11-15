@@ -1,5 +1,6 @@
 import 'package:auth_google_sign/services/google_auth_cubit.dart';
 import 'package:auth_google_sign/services/google_auth_state.dart';
+import 'package:auth_google_sign/views/login_glacier.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,7 +24,7 @@ class _LoginState extends State<Login> {
       ),
       body: Center(
         child: Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
           child: Form(
             child: Column(
               children: [
@@ -66,7 +67,16 @@ class _LoginState extends State<Login> {
                                   "Connexion avec google",
                                 ));
                     },
-                    listener: (context, state) {})
+                    listener: (context, state) {}),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginGlacier()));
+                  },
+                  child: const Text("Se connecter en tant que glacier"),
+                ),
               ],
             ),
           ),
