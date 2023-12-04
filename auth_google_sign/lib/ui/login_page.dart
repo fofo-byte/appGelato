@@ -1,6 +1,6 @@
 import 'package:auth_google_sign/services/google_auth_cubit.dart';
 import 'package:auth_google_sign/services/google_auth_state.dart';
-import 'package:auth_google_sign/views/login_glacier.dart';
+import 'package:auth_google_sign/ui/login_glacier.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,7 +20,7 @@ class _LoginState extends State<Login> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text("Google Sign"),
+        title: const Text("App Gelato"),
       ),
       body: Center(
         child: Padding(

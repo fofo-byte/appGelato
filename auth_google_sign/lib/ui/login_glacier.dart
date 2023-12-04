@@ -1,3 +1,4 @@
+import 'package:auth_google_sign/ui/inscription_glacier.dart';
 import 'package:flutter/material.dart';
 
 class LoginGlacier extends StatefulWidget {
@@ -32,10 +33,10 @@ class _LoginGlacierState extends State<LoginGlacier> {
             ),
             ElevatedButton(
               onPressed: () {
-                if (emailController.text.isNotEmpty &&
-                    passwordController.text.isNotEmpty) {
-                  //login();
-                }
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const InscriptionGlacier()));
               },
               child: const Text('Connexion'),
             ),
