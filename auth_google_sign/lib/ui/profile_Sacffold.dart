@@ -1,4 +1,5 @@
 import 'package:auth_google_sign/components/text_box.dart';
+import 'package:auth_google_sign/ui/register_profile_scaffold.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -12,14 +13,23 @@ class ProfileScaffold extends StatefulWidget {
 
 class _ProfileScaffoldState extends State<ProfileScaffold> {
   final currentUser = FirebaseAuth.instance.currentUser!;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.grey[300],
         appBar: AppBar(
-          title: const Text('My profile'),
+          title: const Text('Mon profil'),
           actions: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.settings))
+            IconButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const Registerprofile(),
+                    ),
+                  );
+                },
+                icon: const Icon(Icons.settings))
           ],
         ),
         body: ListView(
@@ -42,12 +52,12 @@ class _ProfileScaffoldState extends State<ProfileScaffold> {
             const Padding(
               padding: EdgeInsets.only(left: 25),
               child: Text(
-                'My Informations',
+                'Mes Informations',
                 style: TextStyle(color: Colors.black),
               ),
             ),
-            const MyTextBox(sectionName: 'Name :', text: 'Alfonso'),
-            const MyTextBox(sectionName: 'First Namne : ', text: 'Casucci'),
+            const MyTextBox(sectionName: 'Prénom :', text: 'Alfonso'),
+            const MyTextBox(sectionName: 'Nom : ', text: 'Casucci'),
             const MyTextBox(
                 sectionName: 'Adresse : ', text: "Rue de l' avenir , 65"),
             const MyTextBox(sectionName: 'Code postale : ', text: '7100'),

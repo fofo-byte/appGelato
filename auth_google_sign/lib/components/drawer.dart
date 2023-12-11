@@ -15,20 +15,20 @@ class MyDrawer extends StatelessWidget {
     //data current user
     final currentUser = FirebaseAuth.instance.currentUser!;
     //navigate to profile page
-    Future<dynamic> onProfileTap() async {
-      Navigator.push(context,
+    void onProfileTap() {
+      Navigator.of(context).push(
           MaterialPageRoute(builder: (context) => const ProfileScaffold()));
     }
 
     //navigate to favorite page
-    Future<dynamic> onFavoriteTap() async {
-      Navigator.push(context,
+    void onFavoriteTap() {
+      Navigator.of(context).push(
           MaterialPageRoute(builder: (context) => const FavoriteScaffold()));
     }
 
     //navigate to message page
-    Future<dynamic> onMessageTap() async {
-      Navigator.push(context,
+    void onMessageTap() {
+      Navigator.of(context).push(
           MaterialPageRoute(builder: (context) => const MessageScaffold()));
     }
 
@@ -70,7 +70,7 @@ class MyDrawer extends StatelessWidget {
               MyListTitle(
                 icon: Icons.message,
                 text: 'M E S S A G E',
-                onTap: () => onMessageTap(),
+                onTap: onMessageTap,
               ),
             ],
           ),
@@ -79,7 +79,7 @@ class MyDrawer extends StatelessWidget {
             child: MyListTitle(
               icon: Icons.logout,
               text: 'D E C O N N E X I O N',
-              onTap: () => Navigator.pop(context),
+              onTap: () => FirebaseAuth.instance.signOut(),
             ),
           ),
         ],
