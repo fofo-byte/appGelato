@@ -9,13 +9,13 @@ class Registerprofile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final currentEmail = FirebaseAuth.instance.currentUser!;
-    final _controllerName = TextEditingController();
-    final _controllerSurname = TextEditingController();
-    final _controllerPseudo = TextEditingController();
-    final _controllerAdress = TextEditingController();
-    final _controllerPostalcode = TextEditingController();
-    final _controllerRegion = TextEditingController();
-    final _controllerPays = TextEditingController();
+    final controllerName = TextEditingController();
+    final controllerSurname = TextEditingController();
+    final controllerPseudo = TextEditingController();
+    final controllerAdress = TextEditingController();
+    final controllerPostalcode = TextEditingController();
+    final controllerRegion = TextEditingController();
+    final controllerPays = TextEditingController();
 
     return Scaffold(
         appBar: AppBar(
@@ -32,7 +32,7 @@ class Registerprofile extends StatelessWidget {
                   height: 10,
                 ),
                 TextField(
-                  controller: _controllerName,
+                  controller: controllerName,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(40),
@@ -44,7 +44,7 @@ class Registerprofile extends StatelessWidget {
                   height: 10,
                 ),
                 TextField(
-                  controller: _controllerSurname,
+                  controller: controllerSurname,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(40),
@@ -56,7 +56,7 @@ class Registerprofile extends StatelessWidget {
                   height: 10,
                 ),
                 TextField(
-                  controller: _controllerPseudo,
+                  controller: controllerPseudo,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(40),
@@ -68,7 +68,7 @@ class Registerprofile extends StatelessWidget {
                   height: 10,
                 ),
                 TextField(
-                  controller: _controllerAdress,
+                  controller: controllerAdress,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(40),
@@ -80,7 +80,7 @@ class Registerprofile extends StatelessWidget {
                   height: 10,
                 ),
                 TextField(
-                  controller: _controllerPostalcode,
+                  controller: controllerPostalcode,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(40),
@@ -92,7 +92,7 @@ class Registerprofile extends StatelessWidget {
                   height: 10,
                 ),
                 TextField(
-                  controller: _controllerRegion,
+                  controller: controllerRegion,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(40),
@@ -104,7 +104,7 @@ class Registerprofile extends StatelessWidget {
                   height: 10,
                 ),
                 TextField(
-                  controller: _controllerPays,
+                  controller: controllerPays,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(40),
@@ -119,13 +119,13 @@ class Registerprofile extends StatelessWidget {
                   onPressed: () {
                     final user = Users(
                       email: currentEmail.email!,
-                      name: _controllerName.text,
-                      surname: _controllerSurname.text,
-                      pseudo: _controllerPseudo.text,
-                      adress: _controllerAdress.text,
-                      postalCode: int.parse(_controllerPostalcode.text),
-                      region: _controllerRegion.text,
-                      pays: _controllerPays.text,
+                      name: controllerName.text,
+                      surname: controllerSurname.text,
+                      pseudo: controllerPseudo.text,
+                      adress: controllerAdress.text,
+                      postalCode: int.parse(controllerPostalcode.text),
+                      region: controllerRegion.text,
+                      pays: controllerPays.text,
                     );
 
                     addUser(user);

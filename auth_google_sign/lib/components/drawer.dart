@@ -1,5 +1,6 @@
 import 'package:auth_google_sign/components/list_title_drawer.dart';
 import 'package:auth_google_sign/ui/favorite_scaffold.dart';
+import 'package:auth_google_sign/ui/list.users.dart';
 import 'package:auth_google_sign/ui/message_scaffold.dart';
 import 'package:auth_google_sign/ui/profile_Sacffold.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -22,8 +23,8 @@ class MyDrawer extends StatelessWidget {
 
     //navigate to favorite page
     void onFavoriteTap() {
-      Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => const FavoriteScaffold()));
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => const ListUser()));
     }
 
     //navigate to message page

@@ -1,4 +1,6 @@
 import 'package:auth_google_sign/components/drawer.dart';
+import 'package:auth_google_sign/ui/list.users.dart';
+import 'package:auth_google_sign/ui/profile_Sacffold.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -13,6 +15,12 @@ class Home extends StatefulWidget {
 //navigate to profile page
 
 class _HomeState extends State<Home> {
+  int _currentIndex = 0;
+  final screens = [
+    const ProfileScaffold(),
+    const ListUser(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,10 +59,16 @@ class _HomeState extends State<Home> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
           BottomNavigationBarItem(icon: Icon(Icons.list), label: 'Liste'),
         ],
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
       ),
     );
   }

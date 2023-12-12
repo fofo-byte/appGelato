@@ -20,7 +20,8 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          centerTitle: true,
+          backgroundColor: Color.fromARGB(244, 253, 246, 146),
           title: const Text("App Gelato"),
         ),
         body: SingleChildScrollView(
