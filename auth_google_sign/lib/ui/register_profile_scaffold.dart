@@ -20,7 +20,7 @@ class Registerprofile extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.blue,
-          title: Text('Registerprofile'),
+          title: const Text('Registerprofile'),
         ),
         body: SingleChildScrollView(
           child: Center(

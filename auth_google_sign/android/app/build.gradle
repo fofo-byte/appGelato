@@ -30,6 +30,7 @@ android {
     namespace "com.example.auth_google_sign"
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
+    
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8

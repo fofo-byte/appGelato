@@ -1,12 +1,16 @@
 import 'package:auth_google_sign/components/drawer.dart';
 import 'package:auth_google_sign/ui/list.users.dart';
+import 'package:auth_google_sign/ui/map_view.dart';
 import 'package:auth_google_sign/ui/profile_Sacffold.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  final Position startPosition;
+
+  const Home({Key? key, required this.startPosition}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
@@ -42,19 +46,35 @@ class _HomeState extends State<Home> {
               icon: const Icon(Icons.logout))
         ],
       ),
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text("Page d'acceuil"),
-            ElevatedButton(
-                onPressed: () {
-                  try {
-                    GoogleSignIn().signOut();
-                    FirebaseAuth.instance.signOut();
-                  } catch (e) {}
-                },
-                child: const Text("Déconnexion"))
+            Container(
+              margin: const EdgeInsets.all(5),
+              width: double.infinity,
+              height: 350,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Theme.of(context).colorScheme.secondary,
+              ),
+              child: const Center(
+                child: MapView(),
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Text(
+              "List of Gelato",
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Theme.of(context).colorScheme.secondary),
+            ),
+            Divider(
+              color: Theme.of(context).colorScheme.secondary,
+              thickness: 1,
+            ),
           ],
         ),
       ),

@@ -1,3 +1,4 @@
+import 'package:auth_google_sign/controller/home_controller.dart';
 import 'package:auth_google_sign/services/google_auth_cubit.dart';
 import 'package:auth_google_sign/ui/home_page.dart';
 import 'package:auth_google_sign/ui/login_page.dart';
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, AsyncSnapshot<User?> snapshot) {
             if (snapshot.hasData && snapshot.data != null) {
-              return const Home();
+              return const HomeController();
             } else if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(
                 child: CircularProgressIndicator(),
