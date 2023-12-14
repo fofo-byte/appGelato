@@ -1,3 +1,4 @@
+import 'package:auth_google_sign/ui/home_page_glacier.dart';
 import 'package:auth_google_sign/ui/inscription_glacier.dart';
 import 'package:flutter/material.dart';
 
@@ -36,7 +37,7 @@ class _LoginGlacierState extends State<LoginGlacier> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const InscriptionGlacier()));
+                        builder: (context) => const HomePageGlacier()));
               },
               child: const Text('Connexion'),
             ),
